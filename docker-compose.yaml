@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SA_PASSWORD: P@55w0rd
+      ACCEPT_EULA: Y
+    ports:
+      - 14331:1433
+    command: "sh -c '/start-up.sh & /opt/mssql/bin/sqlservr;'"
